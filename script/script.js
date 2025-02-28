@@ -1,3 +1,6 @@
+let deleteButton=document.getElementById('delete');
+
+
 let textBox = document.getElementById('textBox');
 let text=textBox.childNodes[0];
 let result= document.getElementById('result');
@@ -33,3 +36,10 @@ document.querySelectorAll('.button').forEach(item => {
         
     });
 });
+deleteButton.addEventListener("click", function(){
+    console.log(typeof(text));
+    let str = text.nodeValue;  
+    str = str.slice(0, str.length - 1);
+    text.nodeValue = str;
+
+})
