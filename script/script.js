@@ -1,13 +1,24 @@
 let deleteButton=document.getElementById('delete');
-
+let removeButton=document.getElementById('remove');
 
 let textBox = document.getElementById('textBox');
 let text=textBox.childNodes[0];
 let result= document.getElementById('result');
+
+
+
+
+
+
 document.querySelectorAll('.button').forEach(item => {
     item.addEventListener('click', () => {
         let value = item.innerHTML;
-        
+        if(text.nodeValue=='Numbers'){
+            text.nodeValue='';
+        }
+        if(text.nodeValue=='Error'){
+            text.nodeValue='';
+        }
         switch (value) {
             case '=':
                 try {
@@ -16,7 +27,7 @@ document.querySelectorAll('.button').forEach(item => {
                     result= document.getElementById('result');
                     result.innerText=eval(text.nodeValue);
                 } catch {
-                    textBox.textContent = 'Error'; 
+                    text.nodeValue = 'Error'; 
                 }
                 break;
             case 'C':
